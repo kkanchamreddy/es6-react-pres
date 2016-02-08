@@ -2,6 +2,7 @@ const React = require('react');
 const preload = require('./netflix');
 const _ = require('lodash');
 const MovieContainer = require('./MovieContainer');
+const MovieTilelayout = require('./MovieTilelayout');
 
 class App extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class App extends React.Component {
     }
 
     render() {
+        var layout =  MovieTilelayout;
         return (
             <div className="app-container">
                 <div className="movies-list">
@@ -20,8 +22,9 @@ class App extends React.Component {
                         this.state.results.map(el => {
                             return (
                                 <MovieContainer
-                                    key={el.imdbID}
-                                    id={el.imdbID}
+                                    key = {el.imdbID}
+                                    id = {el.imdbID}
+                                    layout = {layout}
                                 />
                             );
                         })
